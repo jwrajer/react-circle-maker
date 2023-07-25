@@ -1,3 +1,28 @@
 body {
   background-color: steelblue;
 }
+
+#root {
+  display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+}
+
+.square {
+  width: 200px;
+  height: 200px;
+  margin: 10px;
+}
+
+.circle {
+  width: 200px;
+  height: 200px;
+  margin: 10px;
+  border-radius: 50%;
+}
+
+.1 {
+  background-color: black;
+}
