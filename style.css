@@ -4,25 +4,32 @@ body {
 
 #root {
   display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    grid-column-gap: 20px;
-    grid-row-gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
 }
 
-.square {
+.shape {
   width: 200px;
   height: 200px;
   margin: 10px;
+  animation: slidein 3s linear infinite;
 }
 
 .circle {
-  width: 200px;
-  height: 200px;
-  margin: 10px;
   border-radius: 50%;
+  border: dashed 4px rgb(0, 255, 8)
+  }
+  
+
+@keyframes slidein {
+  from {
+    transform: rotate(0deg)
+  }
+
+  to {
+    transform: rotate(360deg)
+  }
 }
 
-.o {
-  background-color: black;
-}

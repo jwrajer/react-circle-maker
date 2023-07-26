@@ -5,16 +5,31 @@ const App = () => {
   return (
     <>
       {Array.from({length: 6}, (_, i) => {
-        return <Shape shape={i % 2 ? 'square' : 'circle'} />
+        return (<Shape
+                shape={`shape ${i % 2 ? 'circle': ''}`} 
+                key={i}
+              />)
       })}
     </>
   )
 }
 
 const Shape = ({shape}) => {
+  
   const colorPicker = () => Math.floor(Math.random() * 255);
-  const randomizedColor = `rgb(${colorPicker()}, ${colorPicker()}, ${colorPicker()})`;
-  return <section style={{backgroundColor: randomizedColor}} className={shape}></section>
+  const randomColors = () => `rgb(${colorPicker()}, ${colorPicker()}, ${colorPicker()})`;
+
+  const [color, setColor] = React.useState(randomColors());
+
+  React.useEffect(() => {
+    setTimeout(() => {
+      setColor(randomColors());
+      console.log(`setTimeout`)
+    }, '1000')
+  },[color])
+
+  return <section style={{backgroundColor: color}} className={shape}></section>
+
 }
 
 const root = ReactDOM.createRoot(container);
