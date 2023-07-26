@@ -4,22 +4,15 @@ const App = () => {
 
   return (
     <>
-      <Shape shape={`square`} />
-      <Shape shape={`square`} />
-      <Shape shape={`square`} />
-      <Shape shape={`circle`} />
-      <Shape shape={`circle`} />
-      <Shape shape={`circle`} />
+      {Array.from({length: 6}, (_, i) => {
+        return <Shape shape={i % 2 ? 'square' : 'circle'} />
+      })}
     </>
   )
 }
 
-const colorPicker = () => {
-  return Math.floor(Math.random() * 255);
-}
-
 const Shape = ({shape}) => {
-  console.log(shape);
+  const colorPicker = () => Math.floor(Math.random() * 255);
   const randomizedColor = `rgb(${colorPicker()}, ${colorPicker()}, ${colorPicker()})`;
   return <section style={{backgroundColor: randomizedColor}} className={shape}></section>
 }
