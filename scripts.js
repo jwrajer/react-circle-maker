@@ -1,46 +1,27 @@
 const container = document.querySelector(`#root`);
 
-// create divs for circle, divs for square
-
 const App = () => {
-
-  // const [color, setColor] = React.useState(0);
-
-  // const getColor = React.useEffect(() => {
-  //   return setColor(Math.floor(Math.random()*255));
-  // }, [])
-  // console.log(color);
-
-  
 
   return (
     <>
-      <Square />
-      <Square />
-      <Square />
-      <Circle />
-      <Circle />
-      <Circle />
+      <Shape shape={`square`} />
+      <Shape shape={`square`} />
+      <Shape shape={`square`} />
+      <Shape shape={`circle`} />
+      <Shape shape={`circle`} />
+      <Shape shape={`circle`} />
     </>
   )
 }
 
-
-
-
-
 const colorPicker = () => {
-  return Math.floor(Math.random() * 4);
+  return Math.floor(Math.random() * 255);
 }
 
-const Square = () => {
-  const square = `square ${colorPicker()}`;
-  return <section className={square}></section>
-}
-
-const Circle = () => {
-  const circle = `circle ${colorPicker()}`;
-  return <section className={circle}></section>
+const Shape = ({shape}) => {
+  console.log(shape);
+  const randomizedColor = `rgb(${colorPicker()}, ${colorPicker()}, ${colorPicker()})`;
+  return <section style={{backgroundColor: randomizedColor}} className={shape}></section>
 }
 
 const root = ReactDOM.createRoot(container);
